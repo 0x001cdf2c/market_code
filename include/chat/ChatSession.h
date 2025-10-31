@@ -4,6 +4,7 @@
 #include "common/Date.h"
 #include <vector>
 #include <memory>
+#include <string>
 
 class User;
 class Message;
@@ -20,8 +21,14 @@ public:
     
     void sendMessage(const std::string& content, std::shared_ptr<User> sender);
     void sendProductCard(const std::string& productId);
+    void addParticipant(std::shared_ptr<User> user);
+    void removeParticipant(std::shared_ptr<User> user);
+    std::vector<std::shared_ptr<Message>> getMessageHistory() const;
     
     std::string getSessionId() const { return sessionId; }
+    Date getStartTime() const { return startTime; }
+    size_t getParticipantCount() const { return participants.size(); }
+    size_t getMessageCount() const { return messages.size(); }
 };
 
 #endif

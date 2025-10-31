@@ -20,9 +20,15 @@ public:
     
     void addSubCategory(std::shared_ptr<ProductCategory> subCategory);
     void addProduct(std::shared_ptr<Product> product);
+    void removeProduct(const std::string& productId);
+    std::vector<std::shared_ptr<Product>> getProducts() const;
+    std::vector<std::shared_ptr<ProductCategory>> getSubCategories() const;
+    bool hasSubCategories() const;
+    int getProductCount() const;
     
     std::string getCategoryId() const { return categoryId; }
     std::string getCategoryName() const { return categoryName; }
+    std::string getParentCategory() const { return parentCategory; }
 };
 
 #endif

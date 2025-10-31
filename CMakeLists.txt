@@ -48,5 +48,10 @@ add_executable(MallSystem
     ${COMMON_SOURCES}
 )
 
+# 设置编译选项
+if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+    target_compile_options(MallSystem PRIVATE -Wall -Wextra -O2)
+endif()
+
 # 测试目标
 add_executable(TestMallSystem tests/test_main.cpp ${USER_SOURCES} ${COMMON_SOURCES})
