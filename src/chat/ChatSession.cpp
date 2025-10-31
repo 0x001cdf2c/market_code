@@ -3,6 +3,7 @@
 #include "user/User.h"
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 
 ChatSession::ChatSession(const std::vector<std::shared_ptr<User>>& users)
     : participants(users), startTime(Date::now()) {

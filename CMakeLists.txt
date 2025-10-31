@@ -53,5 +53,5 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     target_compile_options(MallSystem PRIVATE -Wall -Wextra -O2)
 endif()
 
-# 测试目标
-add_executable(TestMallSystem tests/test_main.cpp ${USER_SOURCES} ${COMMON_SOURCES})
+# 注释掉测试目标，因为我们还没有实现测试文件
+# add_executable(TestMallSystem tests/test_main.cpp ${USER_SOURCES} ${COMMON_SOURCES})
