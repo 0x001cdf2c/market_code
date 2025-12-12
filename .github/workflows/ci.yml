@@ -1,0 +1,44 @@
+name: CI
+
+# 触发条件：推送到主分支或拉取请求
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    
+    steps:
+    # 1. 检出代码
+    - name: Checkout
+      uses: actions/checkout@v4
+    
+    # 2. 安装基础依赖
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential cmake libgtest-dev
+        
+    # 3. 配置和构建项目
+    - name: Configure and Build
+      run: |
+        mkdir -p build
+        cd build
+        cmake ..
+        make -j4
+        
+    # 4. 运行单元测试
+    - name: Run Unit Tests
+      run: |
+        cd build
+        ./bin/unit_tests
+        
+    # 5. 运行集成测试
+    - name: Run Integration Tests
+      run: |
+        cd build
+        ./bin/integration_tests
