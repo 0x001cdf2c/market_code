@@ -1,3 +1,4 @@
-/home/kali/MallSystem/build/CMakeFiles/MallSystem.dir
+/home/kali/MallSystem/build/CMakeFiles/unit_tests.dir
+/home/kali/MallSystem/build/CMakeFiles/integration_tests.dir
 /home/kali/MallSystem/build/CMakeFiles/edit_cache.dir
 /home/kali/MallSystem/build/CMakeFiles/rebuild_cache.dir
