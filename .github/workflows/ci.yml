@@ -19,19 +19,20 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y build-essential cmake libgtest-dev
         
-    - name: Configure project
+    - name: Clean and configure
       run: |
-        # 使用全新的构建目录
-        mkdir -p github_build
-        cd github_build
-        cmake ..
+        rm -rf build
+        mkdir -p build
+        cd build
+        # 明确指定 C++14
+        cmake .. -DCMAKE_CXX_STANDARD=14
         
     - name: Build project
       run: |
-        cd github_build
+        cd build
         make -j4
         
     - name: Run tests
       run: |
-        cd github_build
+        cd build
         ctest --output-on-failure

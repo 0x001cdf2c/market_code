@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/kali/MallSystem/include
 
-CXX_FLAGS = -std=gnu++11
+CXX_FLAGS = -std=c++14
 
